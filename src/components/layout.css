@@ -620,3 +620,20 @@ pre tt:after {
     font-size: 100%;
   }
 }
+
+
+.book-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap
+}
+
+.book {
+  width: 25%;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.book img {
+  width: 50%;
+}

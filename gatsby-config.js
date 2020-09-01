@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
+    title: `Gatsby BookPlus`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
   },
@@ -30,5 +30,28 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+    {
+      // The name of the plugin
+      resolve: 'gatsby-source-mongodb',
+      options: {
+        // Name of the database and collection where are books reside
+        dbName: 'gatsby',
+        collection: 'books',
+        server: {
+          address: 'cluster0-shard-00-02.7ahkd.mongodb.net',
+          port: 27017
+        },
+        auth: {
+          user: 'admin',
+          password: 'burak834834'
+        },
+        extraParams: {
+          replicaSet: 'cluster0-shard-0',
+          ssl: true,
+          authSource: 'admin',
+          retryWrites: true
+        }
+      }
+    },
   ],
 }
