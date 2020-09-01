@@ -30,6 +30,7 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+
     {
       // The name of the plugin
       resolve: 'gatsby-source-mongodb',
@@ -38,15 +39,15 @@ module.exports = {
         dbName: 'gatsby',
         collection: 'books',
         server: {
-          address: 'cluster0-shard-00-02.7ahkd.mongodb.net',
+          address: process.env.GATSBY_MONGO_ADRESS,
           port: 27017
         },
         auth: {
-          user: 'admin',
-          password: 'burak834834'
+          user: process.env.GATSBY_MONGO_USERNAME,
+          password: process.env.GATSBY_MONGO_PWD
         },
         extraParams: {
-          replicaSet: 'cluster0-shard-0',
+          replicaSet: process.env.GATSBY_MONGO_REPLICASET,
           ssl: true,
           authSource: 'admin',
           retryWrites: true
